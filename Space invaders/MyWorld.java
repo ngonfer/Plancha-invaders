@@ -16,7 +16,12 @@ public class MyWorld extends World
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(600, 400, 1); 
-        setBackground("espacio.jpeg");
+        super(640, 480, 1); 
+        setBackground("oceano.jpg");
+    }
+    
+    public void started() {
+        addObject(new Plancha(), 1, 1);
+        addObject(new Pez(), 100, 100);
     }
 }
