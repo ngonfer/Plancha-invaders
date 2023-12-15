@@ -14,6 +14,8 @@ public class ActorExtension extends Actor
      */
     
     GreenfootImage Imagen;
+    float factor;
+    float velocidad;
     
     protected void BetterMove(int x, int y)
     {
@@ -25,5 +27,17 @@ public class ActorExtension extends Actor
         int nuevaAltura = (int)((float)Imagen.getHeight()*factor);
         int nuevaAnchura = (int)((float)Imagen.getWidth()*factor);
         Imagen.scale(nuevaAnchura, nuevaAltura);
+    }
+    
+    public boolean IsAtTopEdge()
+    {
+                
+        return getY()<Imagen.getHeight()*factor+25;
+        
+    }
+    
+    public boolean IsAtBottomEdge()
+    {
+        return getY()>648-Imagen.getHeight()*factor-30;
     }
 }

@@ -8,7 +8,7 @@ import java.util.Random;
  * @version (a version number or a date)
  */
 
-public abstract class Pez extends ActorExtension
+public class PezRojo extends Pez
 {
     /**
      * Act - do whatever the Pez wants to do. This method is called whenever
@@ -19,6 +19,17 @@ public abstract class Pez extends ActorExtension
     boolean isMovingUp;
     int tasaDeGiro;
     
+    public PezRojo()
+    {
+        factor=1/4f;
+        velocidad=1.5f;
+        tasaDeGiro=200;
+        isMovingUp=true;
+        Imagen = new GreenfootImage("fish-3410329_640.png");
+        ScaleBy(factor);
+        setImage(Imagen);
+    }
+    
     public void act()
     {
         UpdatePosition();
@@ -26,7 +37,7 @@ public abstract class Pez extends ActorExtension
     
     public void UpdatePosition()
     {
-        if (ran.nextInt(125)==66)
+        if (ran.nextInt(tasaDeGiro)==66)
         {
             ChangeDirection();
         }
@@ -49,6 +60,6 @@ public abstract class Pez extends ActorExtension
     {
         isMovingUp=!isMovingUp;
     }
-    
-    
 }
+
+

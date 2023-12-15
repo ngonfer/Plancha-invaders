@@ -13,12 +13,9 @@ public class Plancha extends ActorExtension
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     
-    float factor;
-    float velocidad;
-    
     public Plancha()
     {
-        velocidad=1f;
+        velocidad=1.5f;
         factor = 1/8f;
         Imagen = new GreenfootImage("iron-158742_1280.png");
         Imagen.mirrorHorizontally();
@@ -48,17 +45,5 @@ public class Plancha extends ActorExtension
                 BetterMove(0, (int)(2*velocidad));
             }
         }
-    }
-    
-    public boolean IsAtTopEdge()
-    {
-                
-        return getY()<Imagen.getHeight()*factor+25;
-        
-    }
-    
-    public boolean IsAtBottomEdge()
-    {
-        return getY()>480-(Imagen.getHeight()*factor-25);
     }
 }
