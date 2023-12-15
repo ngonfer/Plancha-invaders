@@ -21,7 +21,7 @@ public class MyWorld extends World
     }
     
     public void started() {
-        addObject(new Plancha(), 1, 1);
+        addObject(new Plancha(), 200, 200);
         addObject(new Pez(), 100, 100);
     }
 }
