@@ -15,9 +15,9 @@ public class Rayo extends ActorExtension
     
     public Rayo()
     {
-        factor = 1/32f;
-        Imagen = new GreenfootImage("image.png");
-        ScaleBy(factor);
+        
+        Imagen = new GreenfootImage("rayo.png");
+        ScaleBy(1/8f);
         setImage(Imagen);
     }
     

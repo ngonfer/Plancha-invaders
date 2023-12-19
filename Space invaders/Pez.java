@@ -1,5 +1,4 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-import java.util.Random;
 
 /**
  * Write a description of class Pez here.
@@ -8,47 +7,24 @@ import java.util.Random;
  * @version (a version number or a date)
  */
 
-public abstract class Pez extends ActorExtension
+public class Pez extends ActorExtension
 {
     /**
      * Act - do whatever the Pez wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    
-    Random ran = new Random();
-    boolean isMovingUp;
-    int tasaDeGiro;
+    public Pez()
+    {
+        Imagen = new GreenfootImage("fish-30828_1280.png");
+        ScaleBy(1/8f);
+        setImage(Imagen);
+    }
     
     public void act()
-    {
-        UpdatePosition();
-    }
-    
-    public void UpdatePosition()
-    {
-        if (ran.nextInt(125)==66)
+    { 
+        if (Greenfoot.isKeyDown(""))
         {
-            ChangeDirection();
-        }
-        if (IsAtBottomEdge() || IsAtTopEdge())
-        {
-            ChangeDirection();
-        }
-        
-        if (isMovingUp)
-        {
-            BetterMove(0, (int)(-2*velocidad));
-        }
-        else
-        {
-            BetterMove(0, (int)(2*velocidad));
+            
         }
     }
-    
-    public void ChangeDirection()
-    {
-        isMovingUp=!isMovingUp;
-    }
-    
-    
 }
