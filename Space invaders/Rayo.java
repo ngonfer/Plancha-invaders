@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.Random;
 
 /**
  * Write a description of class Rayo here.
@@ -13,17 +14,51 @@ public class Rayo extends ActorExtension
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     
+    Random ran = new Random();
+    
     public Rayo()
     {
-        
-        Imagen = new GreenfootImage("rayo.png");
-        ScaleBy(1/8f);
+        velocidad=4f;
+        factor = 1/32f;
+        Imagen = new GreenfootImage("image.png");
+        ScaleBy(factor);
         setImage(Imagen);
     }
     
-        public void act()
-        {
-            // Add your action code here.
+    public void act()
+    {
+        // Add your action code here.
+        SerDisparado();
+    }
         
+    public void SerDisparado()
+    {
+                
+        BetterMove((int)(2*velocidad),0);
+            
+        Actor actor = getOneIntersectingObject(Actor.class);
+        if (actor != null) 
+        {
+            getWorld().removeObject(actor);
+            int X = ran.nextInt(450,700);
+            MyWorld.contador.add(1);
+            if (ran.nextInt(2)==1)
+            {
+                getWorld().addObject(Pez.PezAzul(),X,300);
+            }
+            else
+            {
+                getWorld().addObject(Pez.PezRojo(), X, 100);
+            }
+            getWorld().removeObject(this);
+            
+            Random ran = new Random();
+            
+            return;
         }
+            if (isAtEdge())
+            {
+                getWorld().removeObject(this);
+            }
+    }
 }
