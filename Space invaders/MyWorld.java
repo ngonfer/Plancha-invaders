@@ -19,7 +19,7 @@ public class MyWorld extends World
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super((int)(640*1.35), (int)(480*1.4), 30);
+        super((int)(640*1.35), (int)(480*1.4), 1);
         contador.setValue(0);    
         GreenfootImage Imagen = new GreenfootImage("oceano.jpg");
         int nuevaAltura = (int)((float)Imagen.getHeight()*1.35);
@@ -27,11 +27,8 @@ public class MyWorld extends World
         Imagen.scale(nuevaAnchura, nuevaAltura);
         setBackground(Imagen);
         score=0;
-    }
-    
-    public void started() {
         addObject(new Plancha(), 100, 240);
-        addObject(contador, 370, 30);
+        addObject(contador, 400, 40);
         addObject(Pez.PezRojo(), 600, 100);
         addObject(Pez.PezAzul(), 500, 100);
     }

@@ -42,6 +42,7 @@ public class Rayo extends ActorExtension
             getWorld().removeObject(actor);
             int X = ran.nextInt(450,700);
             MyWorld.contador.add(1);
+            MyWorld.score++;
             if (ran.nextInt(2)==1)
             {
                 getWorld().addObject(Pez.PezAzul(),X,300);
@@ -50,15 +51,20 @@ public class Rayo extends ActorExtension
             {
                 getWorld().addObject(Pez.PezRojo(), X, 100);
             }
+            
+            if (MyWorld.score==30)
+            {
+                Greenfoot.setWorld(new WinScreen());
+            }
             getWorld().removeObject(this);
             
             Random ran = new Random();
             
             return;
         }
-            if (isAtEdge())
-            {
-                getWorld().removeObject(this);
-            }
+        if (isAtEdge())
+        {
+            getWorld().removeObject(this);
+        }
     }
 }
